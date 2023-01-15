@@ -86,9 +86,9 @@ void flip_data(uint** dst, uint** src, int N, int M) {
     }
 }
 void malloc_data(uint*** DATA, int N, int M) {
-    DATA = (uint*)malloc(N * sizeof(uint*));
+    *DATA = (uint**)malloc(N * sizeof(uint*));
     for (int i = 0; i < N; i++) {
-        (DATA)[i] = (uint)malloc(M * sizeof(uint));
+        (*DATA)[i] = (uint*)malloc(M * sizeof(uint));
         for (int j = 0; j < M; j++) {
             (*DATA)[i][j] = 0u;
         }
